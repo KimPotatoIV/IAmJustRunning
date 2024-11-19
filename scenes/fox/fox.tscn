@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnce26daifyxu"]
+
+[ext_resource type="Texture2D" uid="uid://dm5r6gvs0gdi" path="res://scenes/fox/fox-Sheet.png" id="1_8cpsj"]
+[ext_resource type="Script" path="res://scenes/fox/fox.gd" id="1_ch7ea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4m1t"]
+atlas = ExtResource("1_8cpsj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8mwo"]
+atlas = ExtResource("1_8cpsj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvwyh"]
+atlas = ExtResource("1_8cpsj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wspo8"]
+atlas = ExtResource("1_8cpsj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t05kk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4m1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8mwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvwyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wspo8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v5knr"]
+radius = 14.0
+
+[node name="Fox" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_ch7ea")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -49)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_t05kk")
+animation = &"run"
+autoplay = "run"
+frame = 3
+frame_progress = 0.96987
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_v5knr")
