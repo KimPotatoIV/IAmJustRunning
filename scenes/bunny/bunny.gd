@@ -30,7 +30,9 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_pressed("ui_down") and is_on_floor():
 		$AnimatedSprite2D.play("sit")
+		GameManager.set_sit(true)
 	else:
 		$AnimatedSprite2D.play("run")
+		GameManager.set_sit(false)
 		
 	move_and_slide()

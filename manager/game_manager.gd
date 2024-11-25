@@ -6,7 +6,8 @@ var game_over: bool = false
 var game_score: int = 0
 var best_game_score: int = 0
 var correction_score: float = 0
-var fox_speed: float = 150
+var enemy_speed: float = 150
+var sit: bool = false
 
 ##################################################
 func  _ready() -> void:
@@ -57,3 +58,7 @@ func load_score() -> void:
 	
 	for score in score_data:
 		best_game_score = score_data[score]
+
+##################################################
+func set_sit(value: bool) -> void:
+	sit = value

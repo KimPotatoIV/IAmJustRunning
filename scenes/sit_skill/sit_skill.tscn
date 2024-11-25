@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhdl8h0vvf6ai"]
+
+[ext_resource type="Texture2D" uid="uid://d4u8i8jw3r81" path="res://scenes/sit_skill/sit_skill.png" id="1_dk7qj"]
+[ext_resource type="Texture2D" uid="uid://d34fe84b86dcr" path="res://scenes/sit_skill/sit_skill_progress.png" id="2_d0swx"]
+[ext_resource type="Script" path="res://scenes/sit_skill/sit_skill.gd" id="3_0itas"]
+
+[node name="SitSkill" type="TextureProgressBar"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = ExtResource("1_dk7qj")
+texture_progress = ExtResource("2_d0swx")
+script = ExtResource("3_0itas")

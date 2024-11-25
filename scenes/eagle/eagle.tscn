@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgrvtpy6quxi8"]
+
+[ext_resource type="Script" path="res://scenes/eagle/eagle.gd" id="1_cix5l"]
+[ext_resource type="Texture2D" uid="uid://b6o2nprqxjwgw" path="res://scenes/eagle/eagle-Sheet.png" id="1_dfcml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2cw1"]
+atlas = ExtResource("1_dfcml")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecikb"]
+atlas = ExtResource("1_dfcml")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx3et"]
+atlas = ExtResource("1_dfcml")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n56jv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2cw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecikb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx3et")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ymcej"]
+radius = 15.0
+height = 50.0
+
+[node name="Eagle" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_cix5l")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -37)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_n56jv")
+autoplay = "default"
+frame_progress = 0.923306
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ymcej")
