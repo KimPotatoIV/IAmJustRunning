@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 ##################################################
 const JUMP_VELOCITY = -450.0
+var sit_skill_node
+
+##################################################
+func _ready() -> void:
+	sit_skill_node = get_node("../HUD/SitSkill")
 
 ##################################################
 func _physics_process(delta: float) -> void:
@@ -31,6 +36,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_down") and is_on_floor():
 		$AnimatedSprite2D.play("sit")
 		GameManager.set_sit(true)
+		sit_skill_node.use_sit_skill()
+	
 	else:
 		$AnimatedSprite2D.play("run")
 		GameManager.set_sit(false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b0kr21ws20ftn"]
+[gd_scene load_steps=16 format=4 uid="uid://b0kr21ws20ftn"]
 
 [ext_resource type="Texture2D" uid="uid://bpqe8bduydbxb" path="res://scenes/main/ground.png" id="1_emf81"]
 [ext_resource type="PackedScene" uid="uid://c6ykuu4vd2pca" path="res://scenes/bunny/bunny.tscn" id="1_oh8ax"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/main/hud.gd" id="6_ix7if"]
 [ext_resource type="FontFile" uid="uid://eg37l3twt6m5" path="res://fonts/neodgm.ttf" id="6_rcajn"]
 [ext_resource type="Script" path="res://scenes/main/score_timer.gd" id="8_ukdt6"]
+[ext_resource type="PackedScene" uid="uid://dhdl8h0vvf6ai" path="res://scenes/sit_skill/sit_skill.tscn" id="9_6shx1"]
 [ext_resource type="AudioStream" uid="uid://djl00f5gwci4t" path="res://sounds/i_am_just_running.wav" id="9_hq5v3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3rpvc"]
@@ -125,6 +126,13 @@ label_settings = SubResource("LabelSettings_yb7ux")
 
 [node name="ScoreTimer" type="Timer" parent="HUD"]
 script = ExtResource("8_ukdt6")
+
+[node name="SitSkill" parent="HUD" instance=ExtResource("9_6shx1")]
+visible = false
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 84.0
+offset_bottom = 124.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_hq5v3")
